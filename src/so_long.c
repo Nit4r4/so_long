@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 15:24:50 by vferraro          #+#    #+#             */
-/*   Updated: 2022/03/29 17:43:37 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/03/29 18:10:46 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,29 +52,29 @@ int main(void)
     //  while (x * 32 < 900)
         // mlx_put_image_to_window(mlx, mlx_win, img.img, x++ * 32, 0);
     int y = 0;
-    // while (y * 32 < 720)
-        // mlx_put_image_to_window(mlx, mlx_win, img.img, y++ * 32, 64);
-    // while(y <= 256)
-    // {
-    //     while(x <= 512)
-    //     {
-    //         mlx_put_image_to_window(mlx, mlx_win, img.img, x, y); // remplir ligne
-    //         x += 32;
-    //         // mlx_put_image_to_window(mlx, mlx_win, img.img, y++ * 32, 0);
-    //     }
-    //     // mlx_put_image_to_window(mlx, mlx_win, img.img, x, y); // ligne suivante
-    //     y += 32;
-    //     x = 0;
-    //  //  reinitialiser au debut de la ligne
-    // }
-    while(y * 32 <= 256)
+    while (y * 32 < 720)
+        mlx_put_image_to_window(mlx, mlx_win, img.img, y++ * 32, 64);
+    while(y <= 256)
     {
-        while(x * 32 <= 512)
+        while(x <= 512)
         {
-            mlx_put_image_to_window(mlx, mlx_win, img.img, x++ * 32, y * 32); // remplir ligne
+            mlx_put_image_to_window(mlx, mlx_win, img.img, x, y); // remplir ligne
+            x += 32;
+            // mlx_put_image_to_window(mlx, mlx_win, img.img, y++ * 32, 0);
         }
-        y++; // ligne suivante
-        x = 0;  //  reinitialiser au debut de la ligne
+        // mlx_put_image_to_window(mlx, mlx_win, img.img, x, y); // ligne suivante
+        y += 32;
+        x = 0;
+     //  reinitialiser au debut de la ligne
     }
+    // while(y * 32 <= 256)
+    // {
+    //     while(x * 32 <= 512)
+    //     {
+    //         mlx_put_image_to_window(mlx, mlx_win, img.img, x++ * 32, y * 32); // remplir ligne
+    //     }
+    //     y++; // ligne suivante
+    //     x = 0;  //  reinitialiser au debut de la ligne
+    // }
     mlx_loop(mlx);
 }
