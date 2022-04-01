@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 15:24:50 by vferraro          #+#    #+#             */
-/*   Updated: 2022/03/29 18:10:46 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/04/01 14:39:53 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int main(void)
     //  while (x * 32 < 900)
         // mlx_put_image_to_window(mlx, mlx_win, img.img, x++ * 32, 0);
     int y = 0;
-    while (y * 32 < 720)
+    // while (y * 32 <= 720)
         mlx_put_image_to_window(mlx, mlx_win, img.img, y++ * 32, 64);
     while(y <= 256)
     {
