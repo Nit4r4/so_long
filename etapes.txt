@@ -1,0 +1,20 @@
+1) open le map.ber (fd)
+2) tu cherches le nombre de lignes et de characters par lignes
+3) chercher le nombre de colonnes 
+4) allouer de la memoire pour recuperer la map
+5) recuperer les infos dans l espace allouer
+
+
+A FAIRE : reussir a afficher dans mon terminal ma map.ber !!! ok
+
+
+	#src/so_long_utils.c \
+	src/so_long_render.c \
+	src/so_long_errors.c \
+	src/so_long_directions.c \ fichiers vire du makfile
+
+NEXT STEP --> Gestion des erreurs    
+ft_strlen de gnl a stocker dans un int pour checker que mes linges fassent la meme taille pour comparer mes lignes sans tout reecrire
+si je n ai pas de 0 1 C P ou E --> return (0)
+ou printf("texte d'erreur")
+

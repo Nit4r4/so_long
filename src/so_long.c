@@ -1,80 +1,67 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/22 15:24:50 by vferraro          #+#    #+#             */
-/*   Updated: 2022/04/01 14:39:53 by vferraro         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "so_long.h"
 
-#include "./mlx/mlx.h"
-#include <stdio.h>
-
-typedef struct  s_data 
+int main(int argc, char **argv)
 {
-    void    *img;
-    void    *addr;
-    int     bits_per_pixel;
-    int     line_lenght;
-    int     endian;
-}               t_data;
-
-void    my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-    char *dst;
-
-    dst = data->addr+ (y * data->line_lenght + x * (data->bits_per_pixel/ 8));
-    *(unsigned int*)dst= color;
-}
-
-int main(void)
-{
-    void    *mlx;
-    void    *mlx_win;
-    char    *filename;
+    char    **map;
+    int     fd;
+    int     file_chars = 0;
     int     width;
     int     height;
-    //void    *img;
-    t_data  img;
+    char    line;
+    // char    *ret;
+    int     ret_read = 45674564;
+    int     i;
+    (void)argc;
 
-    filename = "img_xpm/vide_HERBE_32x32.xpm";
+    fd = open(argv[1], O_RDONLY); // ouvrir le fichier .ber
+    width = 0;
+    height = 0;
+    line = '$';
+    
+    while (get_next_line(fd) != NULL)
+        height++;
+    close(fd);
 
-    mlx = mlx_init();
-    mlx_win = mlx_new_window(mlx, 512, 256, "Fox Trot");
-    img.img = mlx_new_image(mlx, 512, 256);
-    img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_lenght, &img.endian);
-   // my_mlx_pixel_put(&img, 200, 200, 0x0000FF00);
-    img.img = mlx_xpm_file_to_image (mlx, filename, &width, &height);
-    int x = 0;
-    //  while (x * 32 < 900)
-        // mlx_put_image_to_window(mlx, mlx_win, img.img, x++ * 32, 0);
-    int y = 0;
-    // while (y * 32 <= 720)
-        mlx_put_image_to_window(mlx, mlx_win, img.img, y++ * 32, 64);
-    while(y <= 256)
+    fd = open(argv[1], O_RDONLY);
+    while(ret_read != 0)
     {
-        while(x <= 512)
-        {
-            mlx_put_image_to_window(mlx, mlx_win, img.img, x, y); // remplir ligne
-            x += 32;
-            // mlx_put_image_to_window(mlx, mlx_win, img.img, y++ * 32, 0);
-        }
-        // mlx_put_image_to_window(mlx, mlx_win, img.img, x, y); // ligne suivante
-        y += 32;
-        x = 0;
-     //  reinitialiser au debut de la ligne
+        ret_read = read(fd, &line, 1);
+        if (ret_read == 0)
+            break ; // return (0); si dans une fonction sinon arrete tout le programme
+        else if (ret_read == -1)
+            return (-1);
+        else if (ret_read == 1)
+            file_chars++;
     }
-    // while(y * 32 <= 256)
-    // {
-    //     while(x * 32 <= 512)
-    //     {
-    //         mlx_put_image_to_window(mlx, mlx_win, img.img, x++ * 32, y * 32); // remplir ligne
-    //     }
-    //     y++; // ligne suivante
-    //     x = 0;  //  reinitialiser au debut de la ligne
-    // }
-    mlx_loop(mlx);
+    close(fd); // fermer le fichier 
+    width = (file_chars) / height;
+    map = malloc(sizeof(char *) * height);
+    i = 0;
+    while (i < height)
+    {
+        map[i] = malloc(sizeof(char) * width);
+        i++;
+    }
+
+    fd = open(argv[1], O_RDONLY);
+    i = 0;
+    while (i < height)
+    {
+        map[i] = get_next_line(fd);
+        i++;
+    }
+
+    int j;
+    i = 0;
+    while (i < height)
+    {
+        j = 0;
+        while (j < width)
+        {
+            printf("%c", map[i][j]);
+            j++;
+        }
+        printf("\n");
+        i++;
+    }
 }
