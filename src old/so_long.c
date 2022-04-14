@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 15:24:50 by vferraro          #+#    #+#             */
-/*   Updated: 2022/04/01 14:39:53 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/04/14 15:27:45 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,11 @@ int main(void)
     {
         while(x <= 512)
         {
+            // if (lines[i] == 1)
+            //     filename = "pathwall";
+            // else if (lines[i] == 0)
+            //     filename = "pathground";
+            img.img = mlx_xpm_file_to_image (mlx, filename, &width, &height);
             mlx_put_image_to_window(mlx, mlx_win, img.img, x, y); // remplir ligne
             x += 32;
             // mlx_put_image_to_window(mlx, mlx_win, img.img, y++ * 32, 0);

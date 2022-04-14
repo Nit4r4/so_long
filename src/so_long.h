@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:57:43 by vferraro          #+#    #+#             */
-/*   Updated: 2022/04/05 15:57:17 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/04/14 16:03:24 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define SO_LONG_H
 
 # include "../libft/libft.h"
+# include "../get_next_line/get_next_line.h"
+# include "../mlx/mlx.h"
 
-// # include <mlx.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -25,7 +26,20 @@
 # include <limits.h>
 # include <string.h>
 
-// verifier si j ai besoin d incerer la libft ou gnl suivant la maniere dont je range mes fichiers dans mes dossiers
+# define IMG_G "./img_xpm/vide_HERBE_32x32.xpm"
+# define IMG_W "./img_xpm/mur_arbre_32x32C2.xpm"
+# define IMG_P "./img_xpm/fox.xpm"
+# define IMG_I "./img_xpm/item_32x32_smallApple.xpm"
+
+typedef struct s_map
+{
+    char    *lines;
+    char    **map2d;
+    int     x;
+    int     y;
+    int     width;
+    int     height;
+}   t_map;
 
 typedef struct s_player
 {
@@ -47,6 +61,18 @@ typedef struct s_start
     int     end;
 }   t_start;
 
-char	*get_next_line(int fd);
+typedef struct s_end
+{
+    int x;
+    int y;
+}   t_end;
+
+typedef struct s_game
+{
+    t_map   map;
+}   t_game;
+
+
+
 
 #endif
