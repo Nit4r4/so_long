@@ -6,14 +6,16 @@
 #    By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/03 22:30:27 by mreymond          #+#    #+#              #
-#    Updated: 2022/04/19 16:56:03 by vferraro         ###   ########.fr        #
+#    Updated: 2022/04/19 18:09:30 by vferraro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = src/so_long.c \
 	get_next_line/get_next_line.c \
-	get_next_line/get_next_line_utils.c	
-CFLAGS = -Wall -Werror -Wextra -Imlx
+	get_next_line/get_next_line_utils.c	\
+	src/draw_map.c \
+	src/put_img_to_window.c 
+CFLAGS = -Wall -Werror -Wextra -Imlx -g -fsanitize=address
 MLXFLAGS = -L ${LBFT_PATH} -lft -L ${MLX_PATH} -lmlx -framework OpenGL -framework AppKit
 CC = gcc
 NAME = so_long

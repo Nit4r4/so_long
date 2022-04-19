@@ -32,8 +32,10 @@ void    str_to_board(t_game *game)
 
     int x;
     int y;
+    int i;
     char **board;
 
+    i = 0;
     board = malloc(game->map.height * sizeof(int *));
     if (!board)
         return ;
@@ -45,7 +47,11 @@ void    str_to_board(t_game *game)
         if (!board[y])
             return ;
         while (x < game->map.width - 1)
-            board[y][x++];
+        {
+            board[y][x++] = game->map.lines[i];
+            i++;
+        }
+        i++;
         y++;
     }
     game->map.map2d = board;
@@ -54,30 +60,27 @@ void    str_to_board(t_game *game)
 int main(int argc, char **argv) // fonctions a reorganiser
 {
     t_game  game;
-    // char    **map;
     int     fd;
-    
-    // int     width;
-    // int     height;
-    // char    line;
-    // char    *ret;
-  
+    int     x;
     int     y;
     (void)argc;
-    // fd = open(argv[1], O_RDONLY); // ouvrir le fichier .ber
-    // width = 0;
-    // height = 0;
-    // line = '$';
     
-    // while (get_next_line(fd) != NULL)
-    //     height++;
-    // close(fd);
-
+    x = 0;
+    y = 0;
+    game.mlx = mlx_init();
     fd = open(argv[1], O_RDONLY);
     linescheck(fd, &game);
     close(fd);
     printf("height[%d] width[%d]\n", game.map.height, game.map.width);
     printf("lines\n%s\n", game.map.lines);
+    str_to_board(&game);
+    game.window = mlx_new_window(game.mlx, game.map.width, game.map.height, "so_long");
+    draw_tile(&game);
+    define_map(&game, x, y);
+    draw_map(&game);
+    mlx_loop(game.mlx);
+}
+
     // // int readline()
     // // {
     //     int     file_chars = 0;
@@ -115,21 +118,3 @@ int main(int argc, char **argv) // fonctions a reorganiser
     //     map[i] = get_next_line(fd);
     //     i++;
     // }
-
-    int x;
-    y = 0;
-    int z = 0;
-    printf("map\n");
-    while (y < game.map.height)
-    {
-        x = 0;
-        while (x < game.map.width)
-        {
-            printf("%c", game.map.lines[z++]);
-            x++;
-        }
-        printf("\n");
-        y++;
-    }
-    printf("lines2\n%c\n", game.map.lines[21]);
-}

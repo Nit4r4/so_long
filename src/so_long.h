@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:57:43 by vferraro          #+#    #+#             */
-/*   Updated: 2022/04/19 15:50:11 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/04/19 18:04:03 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,13 @@ typedef struct s_game
 }   t_game;
 
 void    draw_tile(t_game *game);
+void    define_map(t_game *game, int x, int y);
+void    draw_map(t_game *game);
+void    draw_ground(t_game *game, int x, int y);
+void    draw_wall(t_game *game, int x, int y);
+void    draw_player(t_game *game, int x, int y);
+void    draw_item(t_game *game, int x, int y);
+void    draw_end(t_game *game, int x, int y);
 
 
 #endif
