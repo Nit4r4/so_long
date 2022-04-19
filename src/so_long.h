@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:57:43 by vferraro          #+#    #+#             */
-/*   Updated: 2022/04/14 16:03:24 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/04/19 15:50:11 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@
 # define IMG_W "./img_xpm/mur_arbre_32x32C2.xpm"
 # define IMG_P "./img_xpm/fox.xpm"
 # define IMG_I "./img_xpm/item_32x32_smallApple.xpm"
+# define IMG_E "./img_xpm/item_32x32_smallApple.xpm"
+
+# define IMG_X 32
+# define IMG_Y 32
+
 
 typedef struct s_map
 {
@@ -40,6 +45,13 @@ typedef struct s_map
     int     width;
     int     height;
 }   t_map;
+
+typedef struct s_img
+{
+    void    *img;
+    int     height;
+    int     width;
+}   t_img;
 
 typedef struct s_player
 {
@@ -69,10 +81,17 @@ typedef struct s_end
 
 typedef struct s_game
 {
+    void    *mlx;
+    void    *window;
     t_map   map;
+    t_img   ground;
+    t_img   wall;
+    t_img   player;
+    t_img   item;
+    t_img   end;
 }   t_game;
 
-
+void    draw_tile(t_game *game);
 
 
 #endif

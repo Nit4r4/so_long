@@ -25,6 +25,32 @@ void    linescheck(int fd, t_game *game)
     // printf("map:\n%s\n", map);       
 }
 
+//  faire une fonction pour transformer les lignes en tableau
+void    str_to_board(t_game *game)
+{
+    // int table[x][y]; //tableau de int de x lignes et y colonnes
+
+    int x;
+    int y;
+    char **board;
+
+    board = malloc(game->map.height * sizeof(int *));
+    if (!board)
+        return ;
+    y = 0;
+    while (y < game->map.height)
+    {
+        x = 0;
+        board[y] = malloc((game->map.width - 1) * sizeof(int));
+        if (!board[y])
+            return ;
+        while (x < game->map.width - 1)
+            board[y][x++];
+        y++;
+    }
+    game->map.map2d = board;
+}
+
 int main(int argc, char **argv) // fonctions a reorganiser
 {
     t_game  game;
@@ -36,7 +62,7 @@ int main(int argc, char **argv) // fonctions a reorganiser
     // char    line;
     // char    *ret;
   
-    int     i;
+    int     y;
     (void)argc;
     // fd = open(argv[1], O_RDONLY); // ouvrir le fichier .ber
     // width = 0;
@@ -90,20 +116,20 @@ int main(int argc, char **argv) // fonctions a reorganiser
     //     i++;
     // }
 
-    int j;
-    i = 0;
+    int x;
+    y = 0;
     int z = 0;
     printf("map\n");
-    while (i < game.map.height)
+    while (y < game.map.height)
     {
-        j = 0;
-        while (j < game.map.width)
+        x = 0;
+        while (x < game.map.width)
         {
             printf("%c", game.map.lines[z++]);
-            j++;
+            x++;
         }
         printf("\n");
-        i++;
+        y++;
     }
     printf("lines2\n%c\n", game.map.lines[21]);
 }
