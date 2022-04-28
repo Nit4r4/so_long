@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:57:43 by vferraro          #+#    #+#             */
-/*   Updated: 2022/04/28 13:54:50 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/04/28 17:51:44 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,7 @@ void    check_map(t_game *game);
 void    init_tiles(t_game *game);
 void    count_tiles(t_game *game, char c);
 void    init_memory(t_game *game);
+void    count_item(t_game *game, int x, int y);
 
 /* utils */
 char *ft_strstr(const char *str, const char *word);
@@ -163,4 +164,8 @@ char *ft_strstr(const char *str, const char *word);
 int     bouge_ton_bool();
 int     in_key_s_hook(t_game *game);
 int     keep_in_touch(int o_key, t_game *game);
+int     wall_king_dead(int o_key, t_game *game);
+int     deprived_of_exit(t_game *game, int x, int y);
+int     this_is_the_end(int o_key, t_game *game);
+
 #endif

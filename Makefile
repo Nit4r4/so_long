@@ -6,7 +6,7 @@
 #    By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/03 22:30:27 by mreymond          #+#    #+#              #
-#    Updated: 2022/04/28 11:15:50 by vferraro         ###   ########.fr        #
+#    Updated: 2022/04/28 16:12:34 by vferraro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRCS = src/so_long.c \
 	src/errors.c \
 	src/inits.c \
 	src/utils.c \
-	src/captain_hook.c 
+	src/captain_hook.c \
+	src/moves.c
 CFLAGS = -Wall -Werror -Wextra -Imlx -g -fsanitize=address
 MLXFLAGS = -framework OpenGL -framework AppKit
 LIB = libft/libft.a ft_printf/libftprintf.a mlx/libmlx.a
