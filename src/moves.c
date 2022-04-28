@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 14:28:34 by vferraro          #+#    #+#             */
-/*   Updated: 2022/04/28 17:57:20 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/04/28 18:38:08 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int     deprived_of_exit(t_game *game, int x, int y)
 {
     if (game->map.map2d[x][y] == '1')
         return (1);
-    if (game->map.map2d[x][y] == 'E' && game->tiles.item > 0)
+    if (game->map.map2d[x][y] == 'E' && game->tiles.item > - 1)
         return (1);
     return (0);
 }
