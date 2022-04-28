@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 11:45:42 by vferraro          #+#    #+#             */
-/*   Updated: 2022/04/19 18:10:32 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/04/28 13:27:34 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,38 +25,71 @@ void    draw_tile(t_game *game)
      game->end.img = mlx_xpm_file_to_image (game->mlx, IMG_E, 
                          &game->end.width, &game->end.height);
 }
-
+/*
+* dessine map
+*/
 void      define_map(t_game *game, int x, int y)
 {
-     if (game->map.map2d[x][y] == '1')
+     draw_ground(game, x, y);
+     if (game->map.map2d[y][x] == '1')
           draw_wall(game, x, y);
-     if (game->map.map2d[x][y] == '0')
-          draw_ground(game, x, y);
-     if (game->map.map2d[x][y] == 'P')
+     else if (game->map.map2d[y][x] == 'P')
+     {
           draw_player(game, x, y);
-     if (game->map.map2d[x][y] == 'C')
+          game->fox.x_fox = x;
+          game->fox.y_fox = y;
+     }
+     else if (game->map.map2d[y][x] == 'C')
           draw_item(game, x, y);
-     if (game->map.map2d[x][y] == 'E')
+     else if (game->map.map2d[y][x] == 'E')
           draw_end(game, x, y);
 }
+
+// avec les counter
+// void      define_map(t_game *game, int x, int y)
+// {
+//      draw_ground(game, x, y);
+//      if (game->map.map2d[y][x] == '1')
+//           {
+//                draw_wall(game, x, y);
+//                game->tiles->wall++;
+//           }
+//      else if (game->map.map2d[y][x] == 'P')
+//           {
+//                draw_player(game, x, y);
+//                game->tiles->player++;
+//           }
+//      else if (game->map.map2d[y][x] == 'C')
+//           {
+//                draw_item(game, x, y);
+//                game->tiles->item++;
+//           }
+//      else if (game->map.map2d[y][x] == 'E')
+//           {
+//                draw_end(game, x, y);
+//                game->tiles->end++;
+//           }
+// }
+
 
 void      draw_map(t_game *game)
 {
     int x;
     int y;
     y = 0;
-    int i = 0;
-    printf("map\n");
+  //  int i = 0;
+     //ft_printf("map2d\n");
     while (y < game->map.height)
     {
-        x = 0;
-        while (x < game->map.width)
-        {
-            printf("%c", game->map.lines[i++]);
-            x++;
-        }
-        printf("\n");
-        y++;
+          x = 0;
+          while (x < game->map.width)
+          {
+               ft_printf("%c", game->map.map2d[y][x]);
+               define_map(game, x, y);
+               x++;
+          }
+          ft_printf("\n");
+          y++;
     }
-    printf("lines2\n%c\n", game->map.lines[21]);
+   // printf("lines2\n%c\n", game->map.lines[21]); //pourquoi 21 
 }
