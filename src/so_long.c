@@ -28,7 +28,9 @@ void    linescheck(int fd, t_game *game)
 //  faire une fonction pour transformer les lignes en tableau
 void    str_to_board(t_game *game)
 {
-    // int table[x][y]; //tableau de int de x lignes et y colonnes
+    /* char table[x][y]; //tableau de char de x lignes et y colonnes 
+    * ATTENTION A BIEN FREE MES MALLOC 
+    */
 
     int x;
     int y;
@@ -112,6 +114,7 @@ int main(int argc, char **argv) // fonctions a reorganiser
     // define_map(&game, game.map.width, game.map.height);
     // mlx_key_hook(game.window, keep_in_touch, &game);
     // mlx_hook(game.window, 17, 0, bouge_ton_bool, &game);
+    //free(malloc);
     mlx_loop_hook(game.mlx, in_key_s_hook, &game);
     mlx_loop(game.mlx);
 }
