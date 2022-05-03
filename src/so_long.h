@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:57:43 by vferraro          #+#    #+#             */
-/*   Updated: 2022/04/28 17:51:44 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/05/03 11:33:39 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@
 # define ERR_LINES "Le rectangle n'est pas un rectangle !\n"
 # define ERR_ARG "Vérifies que tu aies le bon nombre d'arguments\n"
 # define ERR_FILE "Oups, il y a un soucis avec ton fichier\n"
-//# define ERR_MAP "La carte n'est apparemment pas au bon format\n" 
+# define ERR_KEY "Cette touche n'est pas valide\n" 
 # define ERR_ITEM "Je ne suis pas matérialiste, mais si il n'y a rien à récupérer je reste dans mon terrier\n" 
 # define ERR_PLY "Être ou ne pas être... telle est la question ici, il te faut un perso pour jouer, tu ne crois pas ?\n"
 # define ERR_PLYS "Il y a beaucoup trop de monde ici...\n"
@@ -120,7 +120,8 @@ typedef struct s_game
 {
     void    *mlx;
     void    *window;
-    int     moves;
+    int     steps;
+    
     t_map   map;
     t_img   ground;
     t_img   wall;
@@ -167,5 +168,6 @@ int     keep_in_touch(int o_key, t_game *game);
 int     wall_king_dead(int o_key, t_game *game);
 int     deprived_of_exit(t_game *game, int x, int y);
 int     this_is_the_end(int o_key, t_game *game);
+int     one_step_two_steps(int o_key, t_game *game);
 
 #endif

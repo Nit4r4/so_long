@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 16:49:08 by vferraro          #+#    #+#             */
-/*   Updated: 2022/04/28 11:59:16 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/05/03 10:57:52 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void    init_tiles(t_game *game)
     game->tiles.player = 0;
     game->tiles.ground = 0;
     game->tiles.end = 0;
-    game->moves = 0;
+    game->steps = 0;
 }
 
 void    count_tiles(t_game *game, char c)

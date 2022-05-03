@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
+/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:03:37 by vferraro          #+#    #+#             */
-/*   Updated: 2022/04/27 17:19:18 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/05/03 12:11:56 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,30 +67,30 @@ void    check_walls(t_game *game, int x, int y)
         critical_errors(ERR_WALL);
 }
           
-// void    check_walls(t_game *game)
-// {
-//     //int w_count;
-//     int i;
-//     i = 0;
-//     printf("le nombre de wall trouve : %d\n", i);
-//     if (game->map.map2d[i] != game->tiles.wall)
-//         critical_errors(ERR_WALL);
-//     // w_count = (game->map.height - 1) + (game->map.map2d -1) * 2;
-//     // if (!w_count)
-//     i = 0;
-//     if (game->map.map2d[0][i++] == '1')
-//     {
-//         i++;
-//     }
-//     critical_errors(ERR_WALL);
-//     i = 0;
-//     if (game->map.map2d[i++][0] == '1')
-//     {
-//         i++;
-//     }
-//     critical_errors(ERR_WALL);
-//     printf("le nombre de wall trouve APRES : %d\n", i);
-// }
+void    check_walls(t_game *game)
+{
+    //int w_count;
+    int i;
+    i = 0;
+    printf("le nombre de wall trouve : %d\n", i);
+    if (game->map.map2d[i] != game->tiles.wall)
+        critical_errors(ERR_WALL);
+    // w_count = (game->map.height - 1) + (game->map.map2d -1) * 2;
+    // if (!w_count)
+    i = 0;
+    if (game->map.map2d[0][i++] == '1')
+    {
+        i++;
+    }
+    critical_errors(ERR_WALL);
+    i = 0;
+    if (game->map.map2d[i++][0] == '1')
+    {
+        i++;
+    }
+    critical_errors(ERR_WALL);
+    printf("le nombre de wall trouve APRES : %d\n", i);
+}
 
 // void    check_walls(t_game *game)
 // {

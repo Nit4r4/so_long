@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 11:02:58 by vferraro          #+#    #+#             */
-/*   Updated: 2022/04/28 17:54:37 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/05/03 12:04:24 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,15 @@ int     keep_in_touch(int o_key, t_game *game)
             game->fox.x_fox -= 1;
         else if (o_key == KEY_D || o_key == ARROW_R)
             game->fox.x_fox += 1;
+        else if (o_key != KEY_A || o_key != KEY_S || o_key != KEY_W || o_key != KEY_D)
+            {
+                ft_printf(ERR_KEY);
+                return(0);
+            }   
         draw_player(game, game->fox.x_fox, game->fox.y_fox);
         count_item(game, game->fox.x_fox, game->fox.y_fox);
+        game->steps++;
+        ft_printf("%d pas\n", game->steps);
     }
     return (0);
 }
