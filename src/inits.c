@@ -6,14 +6,13 @@
 /*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 16:49:08 by vferraro          #+#    #+#             */
-/*   Updated: 2022/05/03 17:57:43 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/05/03 18:16:01 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-
-void    init_tiles(t_game *game)
+void	init_tiles(t_game *game)
 {
 	game->tiles.wall = 0;
 	game->tiles.item = 0;
@@ -29,7 +28,7 @@ void	count_tiles(t_game *game, char c)
 	{
 		game->tiles.wall++;
 	}
-	if  (c == 'C')
+	if (c == 'C')
 		game->tiles.item++;
 	if (c == 'P')
 		game->tiles.player++;
