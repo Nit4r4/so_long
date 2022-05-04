@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:57:43 by vferraro          #+#    #+#             */
-/*   Updated: 2022/05/04 14:06:18 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/05/04 15:34:56 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define IMG_G "./img_xpm/vide_HERBE_32x32.xpm"
 # define IMG_W "./img_xpm/mur_arbre_32x32C2.xpm"
 # define IMG_P "./img_xpm/fox.xpm"
+# define IMG_PL "./img_xpm/foxL.xpm"
 # define IMG_I "./img_xpm/item_32x32_smallApple.xpm"
 # define IMG_E "./img_xpm/end32x32_flip.xpm"
 
@@ -124,6 +125,7 @@ typedef struct s_game
 	t_img		ground;
 	t_img		wall;
 	t_img		player;
+	t_img		playerleft;
 	t_img		item;
 	t_img		end;
 	t_tiles		tiles;
@@ -140,6 +142,7 @@ void	draw_map(t_game *game);
 void	draw_ground(t_game *game, int x, int y);
 void	draw_wall(t_game *game, int x, int y);
 void	draw_player(t_game *game, int x, int y);
+void	draw_playerleft(t_game *game, int x, int y);
 void	draw_item(t_game *game, int x, int y);
 void	draw_end(t_game *game, int x, int y);
 void	critical_errors(char *str);
@@ -151,6 +154,8 @@ void	init_tiles(t_game *game);
 void	count_tiles(t_game *game, char c);
 void	init_memory(t_game *game);
 void	count_item(t_game *game, int x, int y);
+void	move_left_fox(t_game *game);
+void	print_steps(t_game *game);
 
 /* moves */
 int		bouge_ton_bool(void);
@@ -159,6 +164,5 @@ int		keep_in_touch(int o_key, t_game *game);
 int		wall_king_dead(int o_key, t_game *game);
 int		deprived_of_exit(t_game *game, int x, int y);
 int		this_is_the_end(int o_key, t_game *game);
-int		one_step_two_steps(int o_key, t_game *game);
 
 #endif

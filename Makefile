@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+         #
+#    By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/03 22:30:27 by vferraro          #+#    #+#              #
-#    Updated: 2022/05/03 17:59:56 by vferraro         ###   ########.fr        #
+#    Updated: 2022/05/04 15:42:38 by vferraro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRCS = src/so_long.c \
 	src/errors.c \
 	src/inits.c \
 	src/captain_hook.c \
-	src/moves.c
+	src/moves.c \
+	src/move_fox_to_left.c 
 CFLAGS = -Wall -Werror -Wextra -Imlx #-g -fsanitize=address
 MLXFLAGS = -framework OpenGL -framework AppKit
 LIB = utils/libft/libft.a utils/ft_printf/libftprintf.a utils/mlx/libmlx.a
