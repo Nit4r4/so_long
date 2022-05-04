@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:03:37 by vferraro          #+#    #+#             */
-/*   Updated: 2022/05/04 13:47:48 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/05/04 14:10:42 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 */
 void	critical_errors(char *str)
 {
-	ft_printf("%s%s", ERROR, str);
+	ft_printf("\n--------------------------\n\n%s\
+%s\n--------------------------\n\n", ERROR, str);
 	exit(EXIT_FAILURE);
 }
 
