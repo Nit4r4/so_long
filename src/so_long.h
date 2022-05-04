@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:57:43 by vferraro          #+#    #+#             */
-/*   Updated: 2022/05/04 13:38:12 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/05/04 14:06:18 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,20 +53,20 @@
 # define ERR_LINES "> Le rectangle n'est pas un rectangle !\n"
 # define ERR_ARG "> Vérifies que tu aies le bon nombre d'arguments\n"
 # define ERR_FILE "> Oups, il y a un soucis avec ton fichier\n"
-# define ERR_KEY "Misclick ? Cette touche n'est pas valide\n" 
+# define ERR_KEY "Misclick ? Cette touche n'est pas valide\n"
 # define ERR_ITEM "> Je ne suis pas matérialiste, mais si il n'y a rien à \
-	récupérer je reste dans mon terrier\n" 
-# define ERR_PLY "> Être ou ne pas être... telle est la question ici, \
-	il te faut un perso pour jouer, tu ne crois pas ?\n"
+récupérer je reste dans mon terrier\n" 
+# define ERR_PLY "> Être ou ne pas être... telle est la question ici,\
+il te faut un perso pour jouer, tu ne crois pas ?\n"
 # define ERR_PLYS "> Il y a beaucoup trop de monde ici...\n"
-# define ERR_GRD "> Tu sais voler ? Moi non plus, ajoute un sol !\n" 
+# define ERR_GRD "> Tu sais voler ? Moi non plus, ajoute un sol !\n"
 # define ERR_WALL "> On a besoin de limite et de cadre dans la vie \
-	pour pouvoir progresser en toute sécurité...\n" 
-# define ERR_END "> On ne peut pas ne pas sortir tu comprends ?\n" 
-# define ERR_M "> Problème de...de...comment on dit déjà ? DE MÉMOIRE !\n" 
+pour pouvoir progresser en toute sécurité...\n"
+# define ERR_END "> On ne peut pas ne pas sortir tu comprends ?\n"
+# define ERR_M "> Problème de...de...comment on dit déjà ? DE MÉMOIRE !\n"
 # define ERR_ERR "> Une inception d'erreur... mais est-on dans la vraie vie ? \
-	Sors ta toupie et fais un test de réalité... \
-	non je déconne, corrige ta faute et recommence !\n" 
+Sors ta toupie et fais un test de réalité...\
+non je déconne, corrige ta faute et recommence !\n"
 
 typedef struct s_map
 {
