@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 11:02:58 by vferraro          #+#    #+#             */
-/*   Updated: 2022/05/04 15:40:51 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/05/04 17:16:14 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,32 +27,40 @@ int	in_key_s_hook(t_game *game)
 }
 
 /* define press keys action */
-int	keep_in_touch(int o_key, t_game *game)
+int	check_left_move(int o_key, t_game *game)
 {
 	if (!wall_king_dead(o_key, game))
 	{
 		draw_ground(game, game->fox.x_fox, game->fox.y_fox);
 		if (o_key == KEY_A || o_key == ARROW_L)
 			move_left_fox(game);
-		else
-		{
-			if (o_key == ESC)
-				bouge_ton_bool();
-			else if (o_key == KEY_W || o_key == ARROW_UP)
-				game->fox.y_fox -= 1;
-			else if (o_key == KEY_S || o_key == ARROW_DW)
-				game->fox.y_fox += 1;
-			else if (o_key == KEY_D || o_key == ARROW_R)
-				game->fox.x_fox += 1;
-			else if (o_key != KEY_A || o_key != KEY_S \
+		return (1);
+	}
+	return (0);
+}
+
+int	keep_in_touch(int o_key, t_game *game)
+{
+	if (check_left_move(o_key, game) == 1)
+	{
+		if (o_key == ESC)
+			bouge_ton_bool();
+		if (o_key == KEY_A || o_key == ARROW_L)
+			return (0);
+		else if (o_key == KEY_W || o_key == ARROW_UP)
+			game->fox.y_fox -= 1;
+		else if (o_key == KEY_S || o_key == ARROW_DW)
+			game->fox.y_fox += 1;
+		else if (o_key == KEY_D || o_key == ARROW_R)
+			game->fox.x_fox += 1;
+		else if (o_key != KEY_A || o_key != KEY_S \
 				|| o_key != KEY_W || o_key != KEY_D)
-			{
-				ft_printf(ERR_KEY);
-				return (0);
-			}
-			draw_player(game, game->fox.x_fox, game->fox.y_fox);
-			print_steps(game);
+		{
+			ft_printf(ERR_KEY);
+			return (0);
 		}
+		draw_player(game, game->fox.x_fox, game->fox.y_fox);
+		print_steps(game);
 	}
 	return (0);
 }

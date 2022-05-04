@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:57:43 by vferraro          #+#    #+#             */
-/*   Updated: 2022/05/04 15:34:56 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/05/04 16:47:41 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,5 +164,6 @@ int		keep_in_touch(int o_key, t_game *game);
 int		wall_king_dead(int o_key, t_game *game);
 int		deprived_of_exit(t_game *game, int x, int y);
 int		this_is_the_end(int o_key, t_game *game);
+int		check_left_move(int o_key, t_game *game);
 
 #endif

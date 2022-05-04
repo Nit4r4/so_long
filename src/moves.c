@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 14:28:34 by vferraro          #+#    #+#             */
-/*   Updated: 2022/05/04 13:51:45 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/05/04 17:17:01 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ int	this_is_the_end(int o_key, t_game *game)
 }
 
 /*
-* fonctions pour ne pas passer/manger les murs
+* fonctions pour ne pas passer a travers les murs 
+* ni sortir si on a pas pris tous les items
 */
 int	deprived_of_exit(t_game *game, int x, int y)
 {
@@ -70,6 +71,10 @@ int	deprived_of_exit(t_game *game, int x, int y)
 	return (0);
 }
 
+/*
+* fonctions pour ne pas passer/manger les murs ni sortir sous conditions 
+* et ce dans toutes les directions
+*/
 int	wall_king_dead(int o_key, t_game *game)
 {
 	if (o_key == KEY_W || o_key == ARROW_UP)
