@@ -6,7 +6,7 @@
 /*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 10:57:43 by vferraro          #+#    #+#             */
-/*   Updated: 2022/05/04 16:47:41 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/05/04 17:20:46 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@
 # define ARROW_UP 126
 
 # define ERROR "Error\n"
-# define ERR_LINES "> Le rectangle n'est pas un rectangle !\n"
+# define ERR_LINES "> La map n'est pas un rectangle !\n"
 # define ERR_ARG "> Vérifies que tu aies le bon nombre d'arguments\n"
 # define ERR_FILE "> Oups, il y a un soucis avec ton fichier\n"
 # define ERR_KEY "Misclick ? Cette touche n'est pas valide\n"
