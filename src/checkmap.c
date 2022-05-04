@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkmap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vferraro <vferraro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vferraro <vferraror@student.42lausanne.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 09:39:35 by vferraro          #+#    #+#             */
-/*   Updated: 2022/05/03 18:01:40 by vferraro         ###   ########.fr       */
+/*   Updated: 2022/05/04 13:55:37 by vferraro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /**
  * verifier que mon fichier a lire est un .ber et rien d'autre 
  */
-void checkname(char *str)
+void	checkname(char *str)
 {
 	char	*ext;
 	int		len;
@@ -35,18 +35,18 @@ void checkname(char *str)
 * Verifier que les lignes sont completes
 * Calculer la longeur des ligneset enlever les retour a la ligne
 */
-void    linescheck(int fd, t_game *game)
+void	linescheck(int fd, t_game *game)
 {
-	char    *gnl;
-	char    *dobby;
-	
+	char	*gnl;
+	char	*dobby;
+
 	dobby = get_next_line(fd);
 	gnl = ft_strtrim(dobby, "\n");
 	free(dobby);
 	game->map.lines = ft_strdup("");
 	game->map.width = 0;
 	game->map.height = 0;
-	while (gnl != NULL) 
+	while (gnl != NULL)
 	{
 		if (game->map.width != (int)ft_strlen(gnl) && game->map.width)
 			critical_errors(ERR_LINES);
@@ -59,19 +59,19 @@ void    linescheck(int fd, t_game *game)
 		gnl = ft_strtrim(dobby, "\n");
 		free(dobby);
 		game->map.height++;
-	}      
+	}
 }
 
 /* 
 * Fonction pour transformer les lignes en tableau 
 * char table[x][y] --> tableau de char de x lignes et y colonnes 
 */
-void    str_to_board(t_game *game)
+void	str_to_board(t_game *game)
 {
-	int x;
-	int y;
-	int i;
-	char **board;
+	int		x;
+	int		y;
+	int		i;
+	char	**board;
 
 	i = 0;
 	board = malloc(game->map.height * sizeof(char *));
@@ -95,10 +95,10 @@ void    str_to_board(t_game *game)
 	game->map.map2d = board;
 }
 
-void    check_map(t_game *game)
+void	check_map(t_game *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
 	init_tiles(game);
